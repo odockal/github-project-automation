@@ -6,8 +6,8 @@ Created on Jan 9, 2019
 '''
 
 from _collections import OrderedDict
-from github.labels import Labels
-from github.utils.http_utils import Print
+from models.labels import Labels
+from utils.http_utils import Print, sendHttpGetRequest
 
 class Issues:
     
@@ -34,7 +34,7 @@ class Issues:
                 Print('This issue is PR: {}'.format(item['number']))
                 prs.append(item)
                 continue
-            labels = self.handler.sendGetRequest("{0}/labels".format(item['url']), headers=self.handler.config.getHeader())
+            labels = sendHttpGetRequest("{0}/labels".format(item['url']), headers=self.handler.config.getHeader())
             labelData = labels.json()
             if len(labelData) > 0:
                 for label in labelData:
