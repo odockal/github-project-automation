@@ -19,5 +19,5 @@ Now you have to configure resources/config.ini file, you need to set your reposi
 	
 	python3 github/main.py
 
-It produces new release for given owner/repo and also uses hard coded file name and tag defined in `main.py`. Should be changes in future.
+It produces new release for given owner/repo and also uses hard coded file name and tag defined in `main.py`. Should be changed in future.
  
