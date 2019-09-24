@@ -25,7 +25,7 @@ def sendHttpGetRequest(url, params=None, **kwargs):
 def sendHttpPostRequest(url, params=None, **kwargs):
     httpResponse = requests.post(url, json=params, **kwargs)
     httpResponse.raise_for_status()
-    return httpResponse
+    return httpResponse 
 
 def sendDeleteRequest(url, params=None, **kwargs):
     httpResponse = requests.delete(url, params=params, **kwargs)
@@ -33,6 +33,7 @@ def sendDeleteRequest(url, params=None, **kwargs):
     return httpResponse
 
 def downloadFile(filename, url, overwriteLocally=False, params=None, **kwargs):
+    print("Downloading file: {0} at {1}".format(filename,url))
     contentResponse = sendHttpGetRequest(url, params=params, **kwargs)
     data = None
     if hasattr(contentResponse, 'content'):

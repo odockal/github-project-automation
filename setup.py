@@ -12,14 +12,14 @@ with open("README.md", "r") as fh:
 
 setup(
     name="github-project-automation",
-    version="0.0.1",
+    version="0.1.0",
     author="Ondrej Dockal",
     author_email="odockal@redhat.com",
     description="A little python package providing automation tools for github project release",
     long_description=long_description,
     url="https://github.com/odockal/github-project-automation",
-    packages=['github', 'github.utils', 'github.handler', 'github.config'],
-    data_files=[('config', ['resources/config.ini'])],
+    data_files=[('config', ['resources/config_template.ini'])],
+    packages=['src/config', 'src/handler', 'src/models', 'src/utils'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GPLv3",

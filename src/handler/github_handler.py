@@ -6,6 +6,7 @@ Created on Jan 10, 2019
 '''
 
 from config.app_config import AppConfig
+from models.assets import ReleaseAsset
 from utils.http_utils import sendHttpGetRequest, convertStrToJson, decodeHttpResponseAttribute, sendHttpPostRequest
 
 

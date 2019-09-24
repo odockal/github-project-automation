@@ -17,10 +17,15 @@ from utils.http_utils import sendHttpPostRequest,\
 print("Running {}".format(sys.argv[0]))
 print("Passed program arguments: {}".format(sys.argv))
 
-debug=0
+debug=1
 overwrite=0
+<<<<<<< HEAD:github/main.py
 version = '2.5.0'
 tag = '2.5.0.RC2'
+=======
+version = '2.7.0'
+tag = '2.7.0.RC2'
+>>>>>>> 489b523... Modules refactorization:src/main.py
 labelList = ('bug', 'enhancement', 'feature', 'task', 'doc')
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -68,7 +73,11 @@ def main():
     # releaseID = handler.getResponseAttributeValueByKey(releases, 'name', version , 'id')
     # release = handler.sendRequestGetResponse("{0}/releases/{1}".format(handler.config.getUrlAddress(), releaseID), headers=handler.config.getHeader())
     # print(release.json()['body'])
+<<<<<<< HEAD:github/main.py
     fileName = "org.eclipse.reddeer-2.5.0.zip"
+=======
+    fileName = "org.eclipse.reddeer-2.7.0.zip"
+>>>>>>> 489b523... Modules refactorization:src/main.py
     params = {
         "tag_name": tag,
         "name": version,
@@ -80,7 +89,7 @@ def main():
         "content_type": "application/zip"
     }
     contentUrl = handler.config.configuration['DEFAULT'].get('assetUrl')
-    file = downloadFile(fileName, contentUrl, True)
+    dFile = downloadFile(fileName, contentUrl, True)
     try:
         response = createRelease(handler, "{0}/releases".format(handler.config.getUrlAddress()), version, params, headers=header)
     except ValueError as err:
@@ -102,8 +111,8 @@ def main():
         url = uploadUrl[:index+len("assets")]
         print(url)
     if uploadUrl:
-        if file is not None:
-            with open(file, 'rb') as binary_file:
+        if dFile is not None:
+            with open(dFile, 'rb') as binary_file:
                 pass
                 uploadResponse = sendHttpPostRequest("{0}?name={1}".format(url, fileName), params=paramsUploadAsset, headers=header, files={'archive': (fileName, binary_file, 'application/zip')})
                 print("Uploading the file returned the status_code: {}".format(uploadResponse.status_code))    
