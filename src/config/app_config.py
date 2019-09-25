@@ -28,6 +28,9 @@ class AppConfig:
         config.read(filename)
         return config
     
+    def getDefaultSection(self):
+        return self.configuration['DEFAULT']
+    
     def getConfiguration(self):
         return self.configuration
     

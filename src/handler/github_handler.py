@@ -26,6 +26,10 @@ class GHApiHandler:
     def getReleases(self):
         return sendHttpGetRequest("{}/releases".format(self.config.getUrlAddress()), 
                                               headers=self.config.getHeader())
+        
+    def getTags(self):
+        return sendHttpGetRequest("{}/tags".format(self.config.getUrlAddress()), 
+                                              headers=self.config.getHeader())        
     
     def getMilestoneNumberByTitle(self, title):
         milestones = self.getMilestones()

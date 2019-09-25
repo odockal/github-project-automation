@@ -17,10 +17,8 @@ from utils.http_utils import sendHttpPostRequest,\
 print("Running {}".format(sys.argv[0]))
 print("Passed program arguments: {}".format(sys.argv))
 
-debug=1
+debug=0
 overwrite=0
-version = '2.7.0'
-tag = '2.7.0.RC2'
 labelList = ('bug', 'enhancement', 'feature', 'task', 'doc')
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -61,14 +59,12 @@ def createRelease(handler, url, version, params=None, **kwargs):
 
 def main():
     handler = GHApiHandler("{}/../resources/config.ini".format(ROOT_DIR))
+    tag = handler.config.getDefaultSection().get('tag') if not None else '2.6.0.RC2'
+    version = handler.config.getDefaultSection().get('version') if not None else '2.6.0'
+    fileName = handler.config.getDefaultSection().get('fileName') if not None else 'org.eclipse.reddeer-2.6.0.zip'
     header = handler.config.getHeader()
     issues = retrieveIssuesFromMilestone(handler, version)
     MDString = createMarkDownString(issues)
-    # releases = handler.getReleases()
-    # releaseID = handler.getResponseAttributeValueByKey(releases, 'name', version , 'id')
-    # release = handler.sendRequestGetResponse("{0}/releases/{1}".format(handler.config.getUrlAddress(), releaseID), headers=handler.config.getHeader())
-    # print(release.json()['body'])
-    fileName = "org.eclipse.reddeer-2.7.0.zip"
     params = {
         "tag_name": tag,
         "name": version,
