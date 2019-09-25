@@ -13,11 +13,11 @@ Simply fork the project, get the content to your disk with
 		
 	git clone https://github.com/user/github-project-automation.git
 	
-Now you have to configure resources/config.ini file, you need to set your repository owner, project name and milestone it aim to build, also you can provide url of binary or archive you want to upload for that release. Then,
+Now you have to configure resources/config.ini file, you need to set your repository owner, repository or project name, version or milestone, tag and filename of the asset you want to upload for that release. Then,
 	
 	cd github-project-automation
 	
 	python3 src/main.py
 
-It produces new release for given owner/repo and also uses hard coded file name and tag defined in `main.py`. Should be changed in future.
+It produces new release draft for given owner/repo, uploads the artifacts, creates a list of issues based on labels bug, task, enhancement, feature and doc.
  
