@@ -1,7 +1,7 @@
 # github-project-automation
 ### Python project for github release automation
 
-Is uses GitHub REST API v3 to communicate with github. It is tailored to create new release for github project with list of resolved issues for particular milestone. 
+Application uses GitHub REST API v3 to communicate with github. It is tailored to create new release for github project with list of resolved issues for particular milestone. 
 
 These information has to be set up in resources/config.ini file, some other resources are hard coded so far. This should change in future to be fully configurable. Also, future version should be using GitHub GraphQL API v4.
 
@@ -17,7 +17,7 @@ Now you have to configure resources/config.ini file, you need to set your reposi
 	
 	cd github-project-automation
 	
-	python3 github/main.py
+	python3 src/main.py
 
 It produces new release for given owner/repo and also uses hard coded file name and tag defined in `main.py`. Should be changed in future.
  

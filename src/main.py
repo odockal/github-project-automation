@@ -19,13 +19,8 @@ print("Passed program arguments: {}".format(sys.argv))
 
 debug=1
 overwrite=0
-<<<<<<< HEAD:github/main.py
-version = '2.5.0'
-tag = '2.5.0.RC2'
-=======
 version = '2.7.0'
 tag = '2.7.0.RC2'
->>>>>>> 489b523... Modules refactorization:src/main.py
 labelList = ('bug', 'enhancement', 'feature', 'task', 'doc')
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -73,11 +68,7 @@ def main():
     # releaseID = handler.getResponseAttributeValueByKey(releases, 'name', version , 'id')
     # release = handler.sendRequestGetResponse("{0}/releases/{1}".format(handler.config.getUrlAddress(), releaseID), headers=handler.config.getHeader())
     # print(release.json()['body'])
-<<<<<<< HEAD:github/main.py
-    fileName = "org.eclipse.reddeer-2.5.0.zip"
-=======
     fileName = "org.eclipse.reddeer-2.7.0.zip"
->>>>>>> 489b523... Modules refactorization:src/main.py
     params = {
         "tag_name": tag,
         "name": version,
