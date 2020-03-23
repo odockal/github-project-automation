@@ -19,7 +19,7 @@ print("Passed program arguments: {}".format(sys.argv))
 
 debug=0
 overwrite=0
-labelList = ('bug', 'enhancement', 'feature', 'task', 'doc')
+labelList = ('bug', 'enhancement', 'feature', 'task', 'doc', 'ci')
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def printPartInMarkDown(issues):
@@ -72,6 +72,10 @@ def main():
         "draft": True,
         "prerelease": False,
     }
+    print("""
+        Parameters used in release processing:
+        {0}
+    """.format(params))
     paramsUploadAsset = {
         "content_type": "application/zip"
     }
